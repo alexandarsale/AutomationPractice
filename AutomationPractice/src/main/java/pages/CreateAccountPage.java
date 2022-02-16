@@ -4,10 +4,14 @@ import Utils.ReadPropertyFile;
 import components.AdressComponent;
 import components.PersonalInformationComponent;
 import components.Randomizer;
+import model.Address;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.Map;
+
+import static model.Address.*;
 import static waiter.Waiter.PAGE_LOAD_TIMEOUT;
 import static waiter.Waiter.waitForElementToBeDisplayed;
 
@@ -16,6 +20,7 @@ public class CreateAccountPage extends BasePage {
     private final PersonalInformationComponent personalInformationComponent;
     private final Randomizer randomizer;
     private final AdressComponent adressComponent;
+    private final Map<Address, String> address;
 
     @FindBy(xpath = "//h3[contains(text(),'Your personal information')]")
     private WebElement personalInfoText;
@@ -25,6 +30,7 @@ public class CreateAccountPage extends BasePage {
         personalInformationComponent = new PersonalInformationComponent(driver);
         randomizer = new Randomizer();
         adressComponent = new AdressComponent(driver);
+        address = getAddress();
     }
 
     @Override
@@ -33,64 +39,58 @@ public class CreateAccountPage extends BasePage {
     }
 
     /* Adding Personal Information */
+    public void setPersonalData() {
+        selectGender();
+        enterFirstName();
+        enterLastName();
+        enterPassword();
+        enterBirthDate();
+        clickNewsletter();
+        clickOffers();
+    }
 
-    public void selectGender() {
+    /* Adding address information */
+    public void setAddressData() {
+        adressComponent.enterCompany(address.get(Company));
+        adressComponent.enterAddress(address.get(Street));
+        adressComponent.enterCity(address.get(City));
+        adressComponent.selectState(address.get(State));
+        adressComponent.enterPostalCode(address.get(ZipCode));
+        adressComponent.enterPhoneNumber(address.get(PhoneNumber));
+        clickRegisterButton();
+    }
+
+    private void selectGender() {
         personalInformationComponent.selectGender();
     }
 
-    public void enterFirstName() {
+    private void enterFirstName() {
         personalInformationComponent.setFirsName(randomizer.firstNameRandomizer());
     }
 
-    public void enterLastName() {
+    private void enterLastName() {
         personalInformationComponent.setLastName(randomizer.lastNameRandomizer());
     }
 
-    public void enterPassword() {
+    private void enterPassword() {
         personalInformationComponent.setPassword(ReadPropertyFile.getValue("password"));
     }
 
-    public void enterBirthDate() {
+    private void enterBirthDate() {
         personalInformationComponent.setDay(ReadPropertyFile.getValue("day"));
         personalInformationComponent.setMonth(ReadPropertyFile.getValue("month"));
         personalInformationComponent.setYear(ReadPropertyFile.getValue("year"));
     }
 
-    public void clickNewsletter() {
+    private void clickNewsletter() {
         personalInformationComponent.clickNewsletterBox();
     }
 
-    public void clickOffers() {
+    private void clickOffers() {
         personalInformationComponent.clickSpecialOfferBox();
     }
 
-    /* Adding Address and Company Information*/
-
-    public void setCompanyName() {
-        adressComponent.enterCompany(ReadPropertyFile.getValue("company"));
-    }
-
-    public void setAddress() {
-        adressComponent.enterAddress(ReadPropertyFile.getValue("address"));
-    }
-
-    public void setCity() {
-        adressComponent.enterCity(ReadPropertyFile.getValue("city"));
-    }
-
-    public void selectState() {
-        adressComponent.selectState(ReadPropertyFile.getValue("state"));
-    }
-
-    public void setZipCode() {
-        adressComponent.enterPostalCode(ReadPropertyFile.getValue("zipcode"));
-    }
-
-    public void enterPhoneNumber() {
-        adressComponent.enterPhoneNumber(ReadPropertyFile.getValue("number"));
-    }
-
-    public void clickRegisterButton() {
+    private void clickRegisterButton() {
         adressComponent.clickRegisterButton();
     }
 }

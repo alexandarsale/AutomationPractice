@@ -15,20 +15,21 @@ public class SignInWithValidCredentialsTest extends BaseTest {
 
         HomePage home = new HomePage(DriverManager.getDriver());
 
+        //Assert home page is opened and click signIn btn
         assertTrue(home.isOpened());
 
         home.clickOnSignUpButton();
 
         AlreadyRegisteredPage arPage = new AlreadyRegisteredPage(DriverManager.getDriver());
 
+        //Assert login page is opened and log in with valid credentials
         assertTrue(arPage.isOpened());
 
-        arPage.enterValidEmail();
-        arPage.enterValidPassword();
-        arPage.clickLogInButton();
+        arPage.setLogInData();
 
         MyAccountPage myAccountPage = new MyAccountPage(DriverManager.getDriver());
 
+        //Assert login is successfull
         assertTrue(myAccountPage.isOpened());
     }
 }

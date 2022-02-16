@@ -7,17 +7,17 @@ public class DriverManager {
     private DriverManager() {
     }
 
-    private static ThreadLocal<WebDriver> dr = new ThreadLocal<>();
+    private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
     public static WebDriver getDriver() {
-        return dr.get();
+        return driver.get();
     }
 
     public static void setDriver(WebDriver driverRef) {
-        dr.set(driverRef);
+        driver.set(driverRef);
     }
 
     public static void unload() {
-        dr.remove();
+        driver.remove();
     }
 }

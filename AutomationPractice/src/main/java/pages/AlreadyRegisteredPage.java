@@ -1,17 +1,21 @@
 package pages;
 
-import Utils.ReadPropertyFile;
 import components.SignInComponent;
+import model.LoginAcc;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.Map;
+
+import static model.LoginAcc.*;
 import static waiter.Waiter.PAGE_LOAD_TIMEOUT;
 import static waiter.Waiter.waitForElementToBeDisplayed;
 
 public class AlreadyRegisteredPage extends BasePage {
 
     private final SignInComponent signInComponent;
+    private final Map<LoginAcc, String> login;
 
     @FindBy(xpath = "//h3[contains(text(),'Already registered?')]")
     private WebElement signInText;
@@ -19,6 +23,7 @@ public class AlreadyRegisteredPage extends BasePage {
     public AlreadyRegisteredPage(WebDriver driver) {
         super(driver);
         signInComponent = new SignInComponent(driver);
+        login = getCredentials();
     }
 
     @Override
@@ -26,15 +31,13 @@ public class AlreadyRegisteredPage extends BasePage {
         return waitForElementToBeDisplayed(signInText, driver, PAGE_LOAD_TIMEOUT);
     }
 
-    public void enterValidEmail() {
-        signInComponent.validEmail(ReadPropertyFile.getValue("email"));
+    public void setLogInData() {
+        signInComponent.validEmail(login.get(Email));
+        signInComponent.validPassword(login.get(Password));
+        clickLogInButton();
     }
 
-    public void enterValidPassword() {
-        signInComponent.validPassword(ReadPropertyFile.getValue("password"));
-    }
-
-    public void clickLogInButton() {
+    private void clickLogInButton() {
         signInComponent.clickSignInButton();
     }
 }
