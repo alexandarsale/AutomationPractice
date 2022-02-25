@@ -10,6 +10,9 @@ public class ProductSuccessfullyAddedToCartComponent extends BasePage {
     @FindBy(xpath = "//a[@title='Proceed to checkout']")
     private WebElement proceedToCheckOutButton;
 
+    @FindBy(css = "span.continue")
+    private WebElement continueShoppingBtn;
+
     public ProductSuccessfullyAddedToCartComponent(WebDriver driver) {
         super(driver);
     }
@@ -21,6 +24,10 @@ public class ProductSuccessfullyAddedToCartComponent extends BasePage {
 
     public void clickProceedCheckOut(){
         click(proceedToCheckOutButton);
+    }
+
+    public void getContinueShoppingBtn(){
+        click(continueShoppingBtn);
     }
 
 }
