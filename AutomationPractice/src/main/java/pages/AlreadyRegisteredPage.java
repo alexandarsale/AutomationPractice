@@ -31,6 +31,11 @@ public class AlreadyRegisteredPage extends BasePage {
         return waitForElementToBeDisplayed(signInText, driver, PAGE_LOAD_TIMEOUT);
     }
 
+    @Override
+    public boolean isTextPresent(String text) {
+        return false;
+    }
+
     public void setLogInData() {
         signInComponent.validEmail(login.get(Email));
         signInComponent.validPassword(login.get(Password));

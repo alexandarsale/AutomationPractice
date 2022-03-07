@@ -24,6 +24,11 @@ public class ShirtsPage extends BasePage{
         return waitForElementToBeDisplayed(tshirtPageText, driver, PAGE_LOAD_TIMEOUT);
     }
 
+    @Override
+    public boolean isTextPresent(String text) {
+        return false;
+    }
+
     public void clickOnTShirtButton(){
         tShirtsComponent.tshirtButton();
     }

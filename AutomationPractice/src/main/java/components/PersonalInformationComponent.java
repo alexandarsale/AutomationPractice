@@ -43,6 +43,11 @@ public class PersonalInformationComponent extends BasePage {
         return false;
     }
 
+    @Override
+    public boolean isTextPresent(String text) {
+        return false;
+    }
+
     public void selectGender() {
         click(gender);
     }

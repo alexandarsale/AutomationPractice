@@ -19,6 +19,11 @@ public class NavigatioBarComponent extends BasePage {
         return false;
     }
 
+    @Override
+    public boolean isTextPresent(String text) {
+        return false;
+    }
+
     public void getAccountBtn(){
         click(accountBtn);
     }

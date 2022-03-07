@@ -20,6 +20,11 @@ public class OrderStepsComponent extends BasePage {
         return false;
     }
 
+    @Override
+    public boolean isTextPresent(String text) {
+        return false;
+    }
+
     public void getSummaryStep(){
         click(summaryStep);
     }

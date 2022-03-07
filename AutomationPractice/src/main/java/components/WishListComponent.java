@@ -24,14 +24,13 @@ public class WishListComponent extends BasePage {
         return false;
     }
 
+    @Override
+    public boolean isTextPresent(String text) {
+        return false;
+    }
+
     public void getWishListProductsBtn(){
         click(wishlistProductsBtn);
     }
 
-    //Get products add in wishlist and print the text
-    public void getProducts(){
-        for (WebElement boughtProduct : boughtProducts) {
-            System.out.println("Products in wishlist " + "are " + boughtProduct.getText());
-        }
-    }
 }

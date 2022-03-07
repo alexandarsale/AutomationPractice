@@ -30,6 +30,11 @@ public class AuthenticationPage extends BasePage{
         return waitForElementToBeDisplayed(createAccText, driver, PAGE_LOAD_TIMEOUT);
     }
 
+    @Override
+    public boolean isTextPresent(String text) {
+        return false;
+    }
+
     public void enterRandomEmail(){
         emailComponent.enterEmail(randomizer.emailRandomizer());
     }

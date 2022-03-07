@@ -22,6 +22,11 @@ public class ShippingComponent extends BasePage {
         return false;
     }
 
+    @Override
+    public boolean isTextPresent(String text) {
+        return false;
+    }
+
     public void carrierBtn() {
         click(processCarrierBtn);
     }

@@ -25,6 +25,11 @@ public class SignInComponent extends BasePage {
         return false;
     }
 
+    @Override
+    public boolean isTextPresent(String text) {
+        return false;
+    }
+
     public void validEmail(String email){
         sendKeys(registeredEmail, email);
     }

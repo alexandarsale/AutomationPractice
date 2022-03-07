@@ -3,6 +3,7 @@ package tests;
 import driver.DriverManager;
 import org.testng.annotations.Test;
 import pages.*;
+import productValidation.ValidateProduct;
 
 import static org.testng.Assert.assertTrue;
 
@@ -43,28 +44,26 @@ public class AddItemsToWishListTest extends BaseTest {
         priceDropPage.clickOnSpecialsBtn();
 
         assertTrue(priceDropPage.isOpened());
+        priceDropPage.clickListsBtn();
+        priceDropPage.clickWishBtn();
 
         QuickViewPage quickViewPage = new QuickViewPage(DriverManager.getDriver());
 
         //Open quickView - menu on first product and add it to wishlist, assert that product is added to wishlist
-        quickViewPage.clickOnQuickViewBtn();
-        quickViewPage.clickWishListBtn();
         assertTrue(quickViewPage.isOpened());
         quickViewPage.clickCloseBtn();
-
-        ItemCheckOutPage itemCheckOutPage = new ItemCheckOutPage(DriverManager.getDriver());
-
-        //Click on second product and add it to wishlist
-        quickViewPage.clickContinueBtn();
-        quickViewPage.clickMoreBtn();
-        quickViewPage.clickWishList();
-
+        priceDropPage.clickSecondWishBtn();
+        quickViewPage.clickCloseBtn();
         NavigatioBarPage navigatioBarPage = new NavigatioBarPage(DriverManager.getDriver());
 
         //Open account menu and click on My wishlists, assert that added products are expected products
         navigatioBarPage.clickAccountBtn();
         myAccountPage.clickMyWishlists();
         myAccountPage.clickWishlistProducts();
-        myAccountPage.wishlistProducts();
+
+        //Validate that correct product is added to wishlist
+        ValidateProduct validateProduct = new ValidateProduct(DriverManager.getDriver());
+        assertTrue(validateProduct.isTextPresent("Printed Chiffon Dress"));
+        assertTrue(validateProduct.isTextPresent("Printed Summer Dress"));
     }
 }

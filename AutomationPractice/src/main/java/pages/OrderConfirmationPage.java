@@ -19,4 +19,9 @@ public class OrderConfirmationPage extends BasePage{
     public boolean isOpened() {
         return waitForElementToBeDisplayed(orderConfirmationText, driver, PAGE_LOAD_TIMEOUT);
     }
+
+    @Override
+    public boolean isTextPresent(String text) {
+        return false;
+    }
 }

@@ -29,6 +29,11 @@ public class MyAccountPage extends BasePage {
         return waitForElementToBeDisplayed(myAccountText, driver, PAGE_LOAD_TIMEOUT);
     }
 
+    @Override
+    public boolean isTextPresent(String text) {
+        return false;
+    }
+
     public void clickMyWishlists() {
         myAccountComponent.getWishLists();
     }
@@ -37,7 +42,4 @@ public class MyAccountPage extends BasePage {
         wishListComponent.getWishListProductsBtn();
     }
 
-    public void wishlistProducts() {
-        wishListComponent.getProducts();
-    }
 }

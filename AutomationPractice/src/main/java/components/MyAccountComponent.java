@@ -19,6 +19,11 @@ public class MyAccountComponent extends BasePage {
         return false;
     }
 
+    @Override
+    public boolean isTextPresent(String text) {
+        return false;
+    }
+
     public void getWishLists(){
         click(myWishlists);
     }

@@ -22,6 +22,11 @@ public class ProductSuccessfullyAddedToCartComponent extends BasePage {
         return false;
     }
 
+    @Override
+    public boolean isTextPresent(String text) {
+        return false;
+    }
+
     public void clickProceedCheckOut(){
         click(proceedToCheckOutButton);
     }

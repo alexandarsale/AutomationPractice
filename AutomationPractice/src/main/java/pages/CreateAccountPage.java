@@ -38,6 +38,11 @@ public class CreateAccountPage extends BasePage {
         return waitForElementToBeDisplayed(personalInfoText, driver, PAGE_LOAD_TIMEOUT);
     }
 
+    @Override
+    public boolean isTextPresent(String text) {
+        return false;
+    }
+
     /* Adding Personal Information */
     public void setPersonalData() {
         selectGender();

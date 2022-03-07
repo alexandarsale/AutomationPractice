@@ -40,6 +40,11 @@ public class AdressComponent extends BasePage {
         return false;
     }
 
+    @Override
+    public boolean isTextPresent(String text) {
+        return false;
+    }
+
     public void enterCompany(String comp) {
         sendKeys(company, comp);
     }

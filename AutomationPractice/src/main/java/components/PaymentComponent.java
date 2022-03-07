@@ -25,6 +25,11 @@ public class PaymentComponent extends BasePage {
         return false;
     }
 
+    @Override
+    public boolean isTextPresent(String text) {
+        return false;
+    }
+
     public void bankPayment() {
         click(payViaBankWire);
     }

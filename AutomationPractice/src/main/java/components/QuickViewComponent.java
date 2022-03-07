@@ -38,6 +38,11 @@ public class QuickViewComponent extends BasePage {
         return false;
     }
 
+    @Override
+    public boolean isTextPresent(String text) {
+        return false;
+    }
+
     public void getQuickViewBtn() {
         Actions actions = new Actions(DriverManager.getDriver());
         actions.moveToElement(specialsComponent.chiffonDressItem).perform();
@@ -67,6 +72,5 @@ public class QuickViewComponent extends BasePage {
 
     public void getCloseBtn() {
         click(closeQuickViewBtn);
-        click(addToCart);
     }
 }

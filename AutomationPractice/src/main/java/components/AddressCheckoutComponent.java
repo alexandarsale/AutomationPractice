@@ -19,6 +19,11 @@ public class AddressCheckoutComponent extends BasePage {
         return false;
     }
 
+    @Override
+    public boolean isTextPresent(String text) {
+        return false;
+    }
+
     public void processBtn(){
         click(processAddressBtn);
     }

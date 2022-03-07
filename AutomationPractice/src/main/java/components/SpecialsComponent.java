@@ -26,6 +26,12 @@ public class SpecialsComponent extends BasePage {
     @FindBy(css = "h5[itemprop = 'name'] > a[title='Printed Summer Dress']")
     public WebElement summerDressItem;
 
+    @FindBy(css = "#list")
+    private WebElement listsBtn;
+
+    @FindBy(css = "a.addToWishlist")
+    private List<WebElement> wishlistButton;
+
     public SpecialsComponent(WebDriver driver) {
         super(driver);
     }
@@ -35,8 +41,25 @@ public class SpecialsComponent extends BasePage {
         return false;
     }
 
+    @Override
+    public boolean isTextPresent(String text) {
+        return false;
+    }
+
     public void getSpecialsBtn() {
         click(allSpecialsBtn);
+    }
+
+    public void getWishListBtn() {
+        click(wishlistButton.get(0));
+    }
+
+    public void getSecondWishListBtn() {
+        click(wishlistButton.get(1));
+    }
+
+    public void getListsBtn() {
+        click(listsBtn);
     }
 
     public void getFirstItem() {

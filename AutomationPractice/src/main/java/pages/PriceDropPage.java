@@ -25,6 +25,23 @@ public class PriceDropPage extends BasePage{
         return waitForElementToBeDisplayed(priceDropText, driver, PAGE_LOAD_TIMEOUT);
     }
 
+    @Override
+    public boolean isTextPresent(String text) {
+        return false;
+    }
+
+    public void clickListsBtn(){
+        specialsComponent.getListsBtn();
+    }
+
+    public void clickWishBtn(){
+        specialsComponent.getWishListBtn();
+    }
+
+    public void clickSecondWishBtn(){
+        specialsComponent.getSecondWishListBtn();
+    }
+
     public void clickOnSpecialsBtn(){
         specialsComponent.getSpecialsBtn();
     }

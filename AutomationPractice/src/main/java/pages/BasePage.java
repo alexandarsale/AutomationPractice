@@ -8,7 +8,7 @@ import org.testng.Assert;
 
 public abstract class BasePage {
 
-    final WebDriver driver;
+    public WebDriver driver;
 
     public BasePage(WebDriver driver){
         this.driver = driver;
@@ -31,4 +31,6 @@ public abstract class BasePage {
     }
 
     public abstract boolean isOpened();
+
+    public abstract boolean isTextPresent(String text);
 }

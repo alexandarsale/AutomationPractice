@@ -27,6 +27,11 @@ public class TShirtsComponent extends BasePage {
         return false;
     }
 
+    @Override
+    public boolean isTextPresent(String text) {
+        return false;
+    }
+
     public void tshirtButton(){
         click(tshirts_button);
     }

@@ -14,6 +14,7 @@ public class ItemCheckOutPage extends BasePage{
     private final PaymentComponent payment;
     private final ShippingComponent shippingComponent;
     private final SummaryComponent summaryComponent;
+    private final OrderStepsComponent orderStepsComponent;
 
     @FindBy(css = "div.layer_cart_product")
     private WebElement itemAddedToCartText;
@@ -25,6 +26,7 @@ public class ItemCheckOutPage extends BasePage{
         payment = new PaymentComponent(driver);
         shippingComponent = new ShippingComponent(driver);
         summaryComponent = new SummaryComponent(driver);
+        orderStepsComponent = new OrderStepsComponent(driver);
     }
 
     @Override
@@ -32,12 +34,33 @@ public class ItemCheckOutPage extends BasePage{
         return waitForElementToBeDisplayed(itemAddedToCartText, driver, PAGE_LOAD_TIMEOUT);
     }
 
+    @Override
+    public boolean isTextPresent(String text) {
+        return false;
+    }
+
     public void clickProceedCheckOutButton(){
         prAdded.clickProceedCheckOut();
     }
 
+    public void clickContinueShoppingBtn(){
+        prAdded.getContinueShoppingBtn();
+    }
+
     public void clickProceedBtn(){
         summaryComponent.proceedBtn();
+    }
+
+    public void addQuantityBtn(){
+        summaryComponent.enterQuantity("2");
+    }
+
+    public void clickSummaryStep(){
+        orderStepsComponent.getSummaryStep();
+    }
+
+    public void substractQuantityBtn(){
+        summaryComponent.subtractQuantity();
     }
 
     public void checkTermsAndConditions(){

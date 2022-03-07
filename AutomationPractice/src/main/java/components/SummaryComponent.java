@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.BasePage;
 
+import java.util.List;
+
 public class SummaryComponent extends BasePage {
 
     @FindBy(xpath = "//p//a[@title='Proceed to checkout']")
@@ -19,12 +21,20 @@ public class SummaryComponent extends BasePage {
     @FindBy(css = "#summary_products_quantity")
     private WebElement productQuantityText;
 
+    @FindBy(css = "input.cart_quantity_input")
+    private List<WebElement> quantityInput;
+
     public SummaryComponent(WebDriver driver) {
         super(driver);
     }
 
     @Override
     public boolean isOpened() {
+        return false;
+    }
+
+    @Override
+    public boolean isTextPresent(String text) {
         return false;
     }
 
@@ -36,6 +46,10 @@ public class SummaryComponent extends BasePage {
         for (int i = 1; i <= 1; i++) {
             click(increaseQuantityBtn);
         }
+    }
+
+    public void enterQuantity(String quantity){
+        sendKeys(quantityInput.get(0), quantity);
     }
 
     public void subtractQuantity() {
