@@ -11,7 +11,7 @@ import static org.testng.Assert.assertTrue;
 public class SignInWithValidCredentialsTest extends BaseTest {
 
     @Test(testName = "SignIn with valid credentials")
-    public static void signInTest() throws InterruptedException {
+    public static void signInTest() {
 
         HomePage home = new HomePage(DriverManager.getDriver());
 

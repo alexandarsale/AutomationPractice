@@ -1,5 +1,6 @@
 package pages;
 
+import components.SearchBoxComponent;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,8 +10,11 @@ import static waiter.Waiter.waitForElementToBeDisplayed;
 
 public class HomePage extends BasePage {
 
+    private final SearchBoxComponent searchBoxComponent;
+
     public HomePage(WebDriver driver) {
         super(driver);
+        searchBoxComponent = new SearchBoxComponent(driver);
     }
 
     //Sign up button element
@@ -32,5 +36,13 @@ public class HomePage extends BasePage {
 
     public void clickOnSignUpButton() {
         click(signUpButton);
+    }
+
+    public void searchBox(String product) {
+        searchBoxComponent.getSearchBox(product);
+    }
+
+    public void clickSearchBtn() {
+        searchBoxComponent.getSearchBtn();
     }
 }
