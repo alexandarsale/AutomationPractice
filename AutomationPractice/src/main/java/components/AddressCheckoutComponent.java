@@ -3,9 +3,8 @@ package components;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import pages.BasePage;
 
-public class AddressCheckoutComponent extends BasePage {
+public class AddressCheckoutComponent extends BaseComponent {
 
     @FindBy(xpath = "//button[@name='processAddress']")
     private WebElement processAddressBtn;
@@ -14,17 +13,7 @@ public class AddressCheckoutComponent extends BasePage {
         super(driver);
     }
 
-    @Override
-    public boolean isOpened() {
-        return false;
-    }
-
-    @Override
-    public boolean isTextPresent(String text) {
-        return false;
-    }
-
-    public void processBtn(){
+    public void processBtn() {
         click(processAddressBtn);
     }
 }

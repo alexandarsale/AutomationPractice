@@ -3,11 +3,10 @@ package components;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import pages.BasePage;
 
 import java.util.List;
 
-public class SummaryComponent extends BasePage {
+public class SummaryComponent extends BaseComponent {
 
     @FindBy(xpath = "//p//a[@title='Proceed to checkout']")
     private WebElement proceedBtn;
@@ -28,16 +27,6 @@ public class SummaryComponent extends BasePage {
         super(driver);
     }
 
-    @Override
-    public boolean isOpened() {
-        return false;
-    }
-
-    @Override
-    public boolean isTextPresent(String text) {
-        return false;
-    }
-
     public void proceedBtn() {
         click(proceedBtn);
     }
@@ -48,7 +37,7 @@ public class SummaryComponent extends BasePage {
         }
     }
 
-    public void enterQuantity(String quantity){
+    public void enterQuantity(String quantity) {
         sendKeys(quantityInput.get(0), quantity);
     }
 

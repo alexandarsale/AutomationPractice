@@ -1,6 +1,7 @@
 package driver;
 
 import Utils.ReadPropertyFile;
+import enums.ConfigProperties;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -17,7 +18,7 @@ public class Driver {
             System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/src/test/java/resources/chrome-driver/chromedriver.exe");
             WebDriver driver = new ChromeDriver();
             DriverManager.setDriver(driver);
-            DriverManager.getDriver().get(ReadPropertyFile.getValue("home_page_url"));
+            DriverManager.getDriver().get(ReadPropertyFile.getValue(ConfigProperties.HOMEPAGEURL));
             DriverManager.getDriver().manage().window().maximize();
             DriverManager.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 

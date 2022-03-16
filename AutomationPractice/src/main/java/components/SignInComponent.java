@@ -3,9 +3,8 @@ package components;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import pages.BasePage;
 
-public class SignInComponent extends BasePage {
+public class SignInComponent extends BaseComponent {
 
     @FindBy(css = "#email")
     private WebElement registeredEmail;
@@ -20,25 +19,15 @@ public class SignInComponent extends BasePage {
         super(driver);
     }
 
-    @Override
-    public boolean isOpened() {
-        return false;
-    }
-
-    @Override
-    public boolean isTextPresent(String text) {
-        return false;
-    }
-
-    public void validEmail(String email){
+    public void validEmail(String email) {
         sendKeys(registeredEmail, email);
     }
 
-    public void validPassword(String pass){
-        sendKeys(registeredPassword, pass);
+    public void validPassword(String pass) {
+        sendKeys(registeredPassword,pass);
     }
 
-    public void clickSignInButton(){
+    public void clickSignInButton() {
         click(signInButton);
     }
 }

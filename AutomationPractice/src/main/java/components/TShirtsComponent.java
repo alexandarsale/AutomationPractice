@@ -5,9 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import pages.BasePage;
 
-public class TShirtsComponent extends BasePage {
+public class TShirtsComponent extends BaseComponent {
 
     @FindBy(xpath = "//ul[contains(@class,'sf-menu')]/li[3]")
     private WebElement tshirts_button;
@@ -22,21 +21,11 @@ public class TShirtsComponent extends BasePage {
         super(driver);
     }
 
-    @Override
-    public boolean isOpened() {
-        return false;
-    }
-
-    @Override
-    public boolean isTextPresent(String text) {
-        return false;
-    }
-
-    public void tshirtButton(){
+    public void tshirtButton() {
         click(tshirts_button);
     }
 
-    public void hoverOverItem(){
+    public void hoverOverItem() {
         Actions actions = new Actions(DriverManager.getDriver());
         actions.moveToElement(fadedShortsItem).perform();
         click(addToCartButton);

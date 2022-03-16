@@ -3,9 +3,8 @@ package components;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import pages.BasePage;
 
-public class MyAccountComponent extends BasePage {
+public class MyAccountComponent extends BaseComponent {
 
     @FindBy(css = "a[title='My wishlists']")
     private WebElement myWishlists;
@@ -14,17 +13,7 @@ public class MyAccountComponent extends BasePage {
         super(driver);
     }
 
-    @Override
-    public boolean isOpened() {
-        return false;
-    }
-
-    @Override
-    public boolean isTextPresent(String text) {
-        return false;
-    }
-
-    public void getWishLists(){
+    public void getWishLists() {
         click(myWishlists);
     }
 }

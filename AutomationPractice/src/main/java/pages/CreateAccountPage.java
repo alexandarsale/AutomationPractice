@@ -4,6 +4,7 @@ import Utils.ReadPropertyFile;
 import components.AdressComponent;
 import components.PersonalInformationComponent;
 import components.Randomizer;
+import enums.ConfigProperties;
 import model.Address;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -78,13 +79,13 @@ public class CreateAccountPage extends BasePage {
     }
 
     private void enterPassword() {
-        personalInformationComponent.setPassword(ReadPropertyFile.getValue("password"));
+        personalInformationComponent.setPassword(ReadPropertyFile.getValue(ConfigProperties.PASSWORD));
     }
 
     private void enterBirthDate() {
-        personalInformationComponent.setDay(ReadPropertyFile.getValue("day"));
-        personalInformationComponent.setMonth(ReadPropertyFile.getValue("month"));
-        personalInformationComponent.setYear(ReadPropertyFile.getValue("year"));
+        personalInformationComponent.setDay(ReadPropertyFile.getValue(ConfigProperties.DAY));
+        personalInformationComponent.setMonth(ReadPropertyFile.getValue(ConfigProperties.MONTH));
+        personalInformationComponent.setYear(ReadPropertyFile.getValue(ConfigProperties.YEAR));
     }
 
     private void clickNewsletter() {

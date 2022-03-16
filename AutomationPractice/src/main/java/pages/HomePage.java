@@ -38,11 +38,11 @@ public class HomePage extends BasePage {
         click(signUpButton);
     }
 
-    public void searchBox(String product) {
-        searchBoxComponent.getSearchBox(product);
+    public void setSearchBox(String product) {
+        searchBoxComponent.enterTextInSearchField(product);
     }
 
-    public void clickSearchBtn() {
-        searchBoxComponent.getSearchBtn();
+    public void setSearchBtn() {
+        searchBoxComponent.clickOnSearchBtn();
     }
 }

@@ -3,9 +3,8 @@ package components;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import pages.BasePage;
 
-public class PaymentComponent extends BasePage {
+public class PaymentComponent extends BaseComponent {
 
     @FindBy(css = "a.bankwire")
     private WebElement payViaBankWire;
@@ -18,16 +17,6 @@ public class PaymentComponent extends BasePage {
 
     public PaymentComponent(WebDriver driver) {
         super(driver);
-    }
-
-    @Override
-    public boolean isOpened() {
-        return false;
-    }
-
-    @Override
-    public boolean isTextPresent(String text) {
-        return false;
     }
 
     public void bankPayment() {

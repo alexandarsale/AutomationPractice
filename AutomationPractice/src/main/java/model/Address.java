@@ -1,6 +1,7 @@
 package model;
 
 import Utils.ReadPropertyFile;
+import enums.ConfigProperties;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,12 +16,12 @@ public enum Address {
 
     public static Map getAddress() {
         Map<Address, String> address = new HashMap<>();
-        address.put(Company, ReadPropertyFile.getValue("company"));
-        address.put(Street, ReadPropertyFile.getValue("address"));
-        address.put(City, ReadPropertyFile.getValue("city"));
-        address.put(State, ReadPropertyFile.getValue("state"));
-        address.put(ZipCode, ReadPropertyFile.getValue("zipcode"));
-        address.put(PhoneNumber, ReadPropertyFile.getValue("number"));
+        address.put(Company, ReadPropertyFile.getValue(ConfigProperties.COMPANY));
+        address.put(Street, ReadPropertyFile.getValue(ConfigProperties.ADDRESS));
+        address.put(City, ReadPropertyFile.getValue(ConfigProperties.CITY));
+        address.put(State, ReadPropertyFile.getValue(ConfigProperties.STATE));
+        address.put(ZipCode, ReadPropertyFile.getValue(ConfigProperties.ZIPCODE));
+        address.put(PhoneNumber, ReadPropertyFile.getValue(ConfigProperties.NUMBER));
         return address;
     }
 }

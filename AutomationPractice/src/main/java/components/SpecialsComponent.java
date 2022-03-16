@@ -5,11 +5,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import pages.BasePage;
 
 import java.util.List;
 
-public class SpecialsComponent extends BasePage {
+public class SpecialsComponent extends BaseComponent {
 
     @FindBy(css = "a[title='All specials']")
     private WebElement allSpecialsBtn;
@@ -34,16 +33,6 @@ public class SpecialsComponent extends BasePage {
 
     public SpecialsComponent(WebDriver driver) {
         super(driver);
-    }
-
-    @Override
-    public boolean isOpened() {
-        return false;
-    }
-
-    @Override
-    public boolean isTextPresent(String text) {
-        return false;
     }
 
     public void getSpecialsBtn() {

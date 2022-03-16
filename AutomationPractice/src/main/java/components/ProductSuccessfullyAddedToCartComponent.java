@@ -3,9 +3,8 @@ package components;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import pages.BasePage;
 
-public class ProductSuccessfullyAddedToCartComponent extends BasePage {
+public class ProductSuccessfullyAddedToCartComponent extends BaseComponent {
 
     @FindBy(xpath = "//a[@title='Proceed to checkout']")
     private WebElement proceedToCheckOutButton;
@@ -17,21 +16,11 @@ public class ProductSuccessfullyAddedToCartComponent extends BasePage {
         super(driver);
     }
 
-    @Override
-    public boolean isOpened() {
-        return false;
-    }
-
-    @Override
-    public boolean isTextPresent(String text) {
-        return false;
-    }
-
-    public void clickProceedCheckOut(){
+    public void clickProceedCheckOut() {
         click(proceedToCheckOutButton);
     }
 
-    public void getContinueShoppingBtn(){
+    public void getContinueShoppingBtn() {
         click(continueShoppingBtn);
     }
 

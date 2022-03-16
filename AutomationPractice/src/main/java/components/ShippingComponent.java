@@ -3,9 +3,8 @@ package components;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import pages.BasePage;
 
-public class ShippingComponent extends BasePage {
+public class ShippingComponent extends BaseComponent {
 
     @FindBy(xpath = "//button[@name='processCarrier']")
     private WebElement processCarrierBtn;
@@ -15,16 +14,6 @@ public class ShippingComponent extends BasePage {
 
     public ShippingComponent(WebDriver driver) {
         super(driver);
-    }
-
-    @Override
-    public boolean isOpened() {
-        return false;
-    }
-
-    @Override
-    public boolean isTextPresent(String text) {
-        return false;
     }
 
     public void carrierBtn() {

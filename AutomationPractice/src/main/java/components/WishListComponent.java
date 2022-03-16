@@ -3,11 +3,10 @@ package components;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import pages.BasePage;
 
 import java.util.List;
 
-public class WishListComponent extends BasePage {
+public class WishListComponent extends BaseComponent {
 
     @FindBy(xpath = "//a[contains(text(),'My wishlist')]")
     private WebElement wishlistProductsBtn;
@@ -19,17 +18,7 @@ public class WishListComponent extends BasePage {
         super(driver);
     }
 
-    @Override
-    public boolean isOpened() {
-        return false;
-    }
-
-    @Override
-    public boolean isTextPresent(String text) {
-        return false;
-    }
-
-    public void getWishListProductsBtn(){
+    public void getWishListProductsBtn() {
         click(wishlistProductsBtn);
     }
 

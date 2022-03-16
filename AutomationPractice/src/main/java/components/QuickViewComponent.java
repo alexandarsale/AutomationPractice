@@ -5,11 +5,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import pages.BasePage;
 
 import java.util.List;
 
-public class QuickViewComponent extends BasePage {
+public class QuickViewComponent extends BaseComponent {
 
     private final SpecialsComponent specialsComponent;
 
@@ -31,16 +30,6 @@ public class QuickViewComponent extends BasePage {
     public QuickViewComponent(WebDriver driver) {
         super(driver);
         specialsComponent = new SpecialsComponent(driver);
-    }
-
-    @Override
-    public boolean isOpened() {
-        return false;
-    }
-
-    @Override
-    public boolean isTextPresent(String text) {
-        return false;
     }
 
     public void getQuickViewBtn() {
