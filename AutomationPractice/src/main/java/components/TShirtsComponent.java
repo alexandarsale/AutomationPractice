@@ -21,6 +21,11 @@ public class TShirtsComponent extends BaseComponent {
         super(driver);
     }
 
+    @Override
+    public boolean isElementDisplayed() {
+        return false;
+    }
+
     public void tshirtButton() {
         click(tshirts_button);
     }

@@ -34,6 +34,11 @@ public class AdressComponent extends BaseComponent {
         super(driver);
     }
 
+    @Override
+    public boolean isElementDisplayed() {
+        return false;
+    }
+
     public void enterCompany(String comp) {
         sendKeys(company, comp);
     }

@@ -36,6 +36,11 @@ public class AlreadyRegisteredPage extends BasePage {
         return false;
     }
 
+    @Override
+    public boolean isElementDisplayed() {
+        return false;
+    }
+
     public void setLogInData() {
         signInComponent.validEmail(login.get(Email));
         signInComponent.validPassword(login.get(Password));

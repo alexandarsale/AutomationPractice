@@ -21,6 +21,11 @@ public class ProductListComponent extends BaseComponent {
         super(driver);
     }
 
+    @Override
+    public boolean isElementDisplayed() {
+        return false;
+    }
+
     public void getProductPrice(double minPrice, double maxPrice) {
         for (int i = 0; i < productPrice.size(); i++) {
             String price = productPrice.get(i).getText();

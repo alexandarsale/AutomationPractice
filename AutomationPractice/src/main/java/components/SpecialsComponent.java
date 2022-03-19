@@ -35,6 +35,11 @@ public class SpecialsComponent extends BaseComponent {
         super(driver);
     }
 
+    @Override
+    public boolean isElementDisplayed() {
+        return false;
+    }
+
     public void getSpecialsBtn() {
         click(allSpecialsBtn);
     }

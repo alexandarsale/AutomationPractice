@@ -13,6 +13,11 @@ public class MyAccountComponent extends BaseComponent {
         super(driver);
     }
 
+    @Override
+    public boolean isElementDisplayed() {
+        return false;
+    }
+
     public void getWishLists() {
         click(myWishlists);
     }

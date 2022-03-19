@@ -6,7 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
-public class BaseComponent {
+public abstract class BaseComponent {
 
     protected WebDriver driver;
 
@@ -29,4 +29,6 @@ public class BaseComponent {
         Select select = new Select(dropdown);
         select.selectByValue(value);
     }
+
+    public abstract boolean isElementDisplayed();
 }

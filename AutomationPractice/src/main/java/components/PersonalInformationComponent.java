@@ -37,6 +37,11 @@ public class PersonalInformationComponent extends BaseComponent {
         super(driver);
     }
 
+    @Override
+    public boolean isElementDisplayed() {
+        return false;
+    }
+
     public void selectGender() {
         click(gender);
     }

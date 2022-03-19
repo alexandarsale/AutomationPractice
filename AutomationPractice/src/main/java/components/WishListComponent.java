@@ -18,6 +18,11 @@ public class WishListComponent extends BaseComponent {
         super(driver);
     }
 
+    @Override
+    public boolean isElementDisplayed() {
+        return false;
+    }
+
     public void getWishListProductsBtn() {
         click(wishlistProductsBtn);
     }

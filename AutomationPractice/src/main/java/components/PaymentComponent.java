@@ -3,6 +3,8 @@ package components;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import static waiter.Waiter.PAGE_LOAD_TIMEOUT;
+import static waiter.Waiter.waitForElementToBeDisplayed;
 
 public class PaymentComponent extends BaseComponent {
 
@@ -15,8 +17,16 @@ public class PaymentComponent extends BaseComponent {
     @FindBy(css = "button.button")
     private WebElement confirmOrderButton;
 
+    @FindBy(css = "#HOOK_PAYMENT")
+    private WebElement paymentOptionText;
+
     public PaymentComponent(WebDriver driver) {
         super(driver);
+    }
+
+    @Override
+    public boolean isElementDisplayed() {
+        return waitForElementToBeDisplayed(paymentOptionText, driver, PAGE_LOAD_TIMEOUT);
     }
 
     public void bankPayment() {

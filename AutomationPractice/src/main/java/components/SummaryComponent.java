@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
+import static waiter.Waiter.PAGE_LOAD_TIMEOUT;
+import static waiter.Waiter.waitForElementToBeDisplayed;
 
 public class SummaryComponent extends BaseComponent {
 
@@ -23,8 +25,16 @@ public class SummaryComponent extends BaseComponent {
     @FindBy(css = "input.cart_quantity_input")
     private List<WebElement> quantityInput;
 
+    @FindBy(css = "#cart_title")
+    private WebElement shoppingCartSummaryText;
+
     public SummaryComponent(WebDriver driver) {
         super(driver);
+    }
+
+    @Override
+    public boolean isElementDisplayed() {
+        return waitForElementToBeDisplayed(shoppingCartSummaryText, driver, PAGE_LOAD_TIMEOUT);
     }
 
     public void proceedBtn() {

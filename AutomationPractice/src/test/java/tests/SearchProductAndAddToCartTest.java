@@ -1,7 +1,7 @@
 package tests;
 
 import Utils.ReadPropertyFile;
-import components.ProductListComponent;
+import components.*;
 import driver.DriverManager;
 import enums.ConfigProperties;
 import org.testng.annotations.Test;
@@ -49,14 +49,29 @@ public class SearchProductAndAddToCartTest extends BaseTest {
 
         ItemCheckOutPage itemCheckOutPage = new ItemCheckOutPage(DriverManager.getDriver());
 
-        //Assert that item is added to cart and checkout page is opened, and make an order
+        //Assert that item is added to cart
         assertTrue(itemCheckOutPage.isOpened());
-
         itemCheckOutPage.clickProceedCheckOutButton();
+
+        //Assert that user is on checkout page menu and can finish the order
+        SummaryComponent summaryComponent = new SummaryComponent(DriverManager.getDriver());
+        assertTrue(summaryComponent.isElementDisplayed());
         itemCheckOutPage.clickProceedBtn();
+
+        //Assert that user is on the right checkout page
+        AddressCheckoutComponent addressCheckoutComponent = new AddressCheckoutComponent(DriverManager.getDriver());
+        assertTrue(addressCheckoutComponent.isElementDisplayed());
         itemCheckOutPage.clickProcessBtn();
+
+        //Assert that user can check shipping options
+        ShippingComponent shippingComponent = new ShippingComponent(DriverManager.getDriver());
+        assertTrue(shippingComponent.isElementDisplayed());
         itemCheckOutPage.checkTermsAndConditions();
         itemCheckOutPage.clickCarrierBtn();
+
+        //Assert that user can choose payment option
+        PaymentComponent paymentComponent = new PaymentComponent(DriverManager.getDriver());
+        assertTrue(paymentComponent.isElementDisplayed());
         itemCheckOutPage.selectPaymentViaBank();
         itemCheckOutPage.clickConfirmOrderBtn();
 

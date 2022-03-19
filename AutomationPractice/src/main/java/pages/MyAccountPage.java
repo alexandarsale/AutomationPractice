@@ -34,6 +34,11 @@ public class MyAccountPage extends BasePage {
         return false;
     }
 
+    @Override
+    public boolean isElementDisplayed() {
+        return false;
+    }
+
     public void clickMyWishlists() {
         myAccountComponent.getWishLists();
     }

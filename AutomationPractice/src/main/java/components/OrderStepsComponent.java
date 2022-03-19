@@ -14,6 +14,11 @@ public class OrderStepsComponent extends BaseComponent {
         super(driver);
     }
 
+    @Override
+    public boolean isElementDisplayed() {
+        return false;
+    }
+
     public void getSummaryStep() {
         click(summaryStep);
     }

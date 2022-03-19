@@ -16,6 +16,11 @@ public class SearchBoxComponent extends BaseComponent {
         super(driver);
     }
 
+    @Override
+    public boolean isElementDisplayed() {
+        return false;
+    }
+
     public void enterTextInSearchField(String search) {
         sendKeys(searchBox, search);
     }

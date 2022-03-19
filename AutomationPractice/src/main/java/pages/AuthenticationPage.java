@@ -35,6 +35,11 @@ public class AuthenticationPage extends BasePage{
         return false;
     }
 
+    @Override
+    public boolean isElementDisplayed() {
+        return false;
+    }
+
     public void enterRandomEmail(){
         emailComponent.enterEmail(randomizer.emailRandomizer());
     }

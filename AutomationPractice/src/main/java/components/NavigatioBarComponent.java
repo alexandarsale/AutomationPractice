@@ -13,6 +13,11 @@ public class NavigatioBarComponent extends BaseComponent {
         super(driver);
     }
 
+    @Override
+    public boolean isElementDisplayed() {
+        return false;
+    }
+
     public void getAccountBtn() {
         click(accountBtn);
     }

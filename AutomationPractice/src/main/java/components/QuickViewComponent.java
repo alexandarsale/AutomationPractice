@@ -32,6 +32,11 @@ public class QuickViewComponent extends BaseComponent {
         specialsComponent = new SpecialsComponent(driver);
     }
 
+    @Override
+    public boolean isElementDisplayed() {
+        return false;
+    }
+
     public void getQuickViewBtn() {
         Actions actions = new Actions(DriverManager.getDriver());
         actions.moveToElement(specialsComponent.chiffonDressItem).perform();

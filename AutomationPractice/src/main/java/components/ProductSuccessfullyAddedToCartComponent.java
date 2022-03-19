@@ -16,6 +16,11 @@ public class ProductSuccessfullyAddedToCartComponent extends BaseComponent {
         super(driver);
     }
 
+    @Override
+    public boolean isElementDisplayed() {
+        return false;
+    }
+
     public void clickProceedCheckOut() {
         click(proceedToCheckOutButton);
     }

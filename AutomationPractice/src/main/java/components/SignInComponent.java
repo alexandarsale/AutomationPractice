@@ -19,6 +19,11 @@ public class SignInComponent extends BaseComponent {
         super(driver);
     }
 
+    @Override
+    public boolean isElementDisplayed() {
+        return false;
+    }
+
     public void validEmail(String email) {
         sendKeys(registeredEmail, email);
     }
